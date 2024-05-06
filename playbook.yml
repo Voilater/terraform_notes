@@ -1,0 +1,19 @@
+---
+- name: Install and configure NGINX
+  hosts: webserver  # Replace 'webserver' with the appropriate host group from your inventory
+
+  tasks:
+    - name: Update package cache
+      apt:
+        update_cache: yes
+
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+
+    - name: Ensure NGINX service is enabled and started
+      service:
+        name: nginx
+        state: started
+        enabled: yes

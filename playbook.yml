@@ -1,7 +1,7 @@
 ---
 - name: Install and configure NGINX
   hosts: ubuntu  # Replace 'webserver' with the appropriate host group from your inventory
-
+	become: yes
   tasks:
     - name: Update package cache
       apt:
